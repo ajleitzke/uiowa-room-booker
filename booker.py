@@ -1,5 +1,5 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options
 import pause
 import datetime
 from time import time
@@ -51,8 +51,8 @@ def book(fname: str, lname: str, email: str, start: int, end: int, room: str, su
     end_time = f'{end}:{half_e}'
 
     options = Options()
-    options.set_headless(headless=True)
-    browser = webdriver.Chrome(chrome_options=options)
+    options.add_argument("--headless")
+    browser = webdriver.Firefox()
 
     # Time to start booking a room
     bt = datetime.datetime.now()
